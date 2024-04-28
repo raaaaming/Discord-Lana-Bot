@@ -40,18 +40,19 @@ async def help(ctx):
     #view.add_item()
 
     async def back_button_callback(interaction: discord.Interaction):
-        dummy = 0
+        await ctx.send("이전")
 
     async def next_button_callback(interaction: discord.Interaction):
-        dummy = 0
+        await ctx.send("다음")
 
     back.callback = back_button_callback
     next.callback = next_button_callback
 
     helpView.add_item(back)
     helpView.add_item(next)
-    
-    await ctx.respond(embed=page, view=helpView)
+
+    await ctx.respond("도움말을 가져왔어요!")
+    await ctx.send(embed=page, view=helpView)
 
 token = os.environ.get("TOKEN") or ""
 bot.run(token)
