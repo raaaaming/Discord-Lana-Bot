@@ -10,7 +10,7 @@ async-timeout==3.0.1
 attrs==23.1.0
 chardet==4.0.0
 pycord==6.8
-idna==3.4
+idna==2.5.0
 multidict==6.0.4
 typing-extensions==4.7.1
 yarl==1.9.2
