@@ -4,7 +4,7 @@
 import os
 
 import discord
-from discord.commands import Option
+#from discord.commands import Option
 
 from keep_alive import keep_alive
 
@@ -15,8 +15,8 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
 @client.slash_command(description="인사하기")
-async def hello(ctx, text: Option(str, "문자열 입력하기")):
-    await ctx.respond(f"안녕하세요! {text}")
+async def hello(ctx):
+    await ctx.respond(f"안녕하세요!")
 
 keep_alive()
 
