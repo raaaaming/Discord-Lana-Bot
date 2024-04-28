@@ -3,22 +3,30 @@
 
 import os
 
-import discord
+import pycord
 #from discord.commands import Option
 
 from keep_alive import keep_alive
 
-client = discord.Bot()
+bot = pycord.Bot(pycord.Intents())
 
-@client.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+@bot.listen(pycord.Ready)
+async def on_ready() -> None:
+    print('Bot is ready!')
 
-@client.slash_command(description="인사하기")
-async def hello(ctx):
-    await ctx.respond(f"안녕하세요!")
+@bot.command()
+async def highfive(ctx: pycord.Context) -> None:
+    # send a response to the command
+    await ctx.send(':raised_hand: High Five!')
+
+view = pycord.View().url_button('Google it!', 'https://google.com')
+
+@bot.command()
+async def google(ctx: pycord.Context) -> None:
+    iview = view()
+    await ctx.send('Just go to Google!', view=iview)
 
 keep_alive()
 
 token = os.environ.get("TOKEN") or ""
-client.run(token)
+bot.run(token)
