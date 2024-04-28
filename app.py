@@ -3,12 +3,12 @@
 
 import os
 
-import pycord
+import discord
 #from discord.commands import Option
 
 from keep_alive import keep_alive
 
-bot = pycord.Bot(pycord.Intents())
+bot = discord.Bot(pycord.Intents())
 
 @bot.listen(pycord.Ready)
 async def on_ready() -> None:
