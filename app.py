@@ -4,26 +4,19 @@
 import os
 
 import discord
-from discord import app_commands
-from discord.ext import commands
+from discord.commands import Options
 
 from keep_alive import keep_alive
 
-intents = discord.Intents.default()
-intents.message_content = True
-
-client = commands.Bot(command_prefix='!', intents=intents)
-
+client = discord.Bot()
 
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
-
-@client.tree.command(name='hello', description='testing')  # 명령어 이름, 설명
-@app_commands.describe(text1='쓸 내용', text2 = '번호') # 같이 쓸 내용들
-async def hello(interaction: discord.Interaction, text1:str, text2:int):    # 출력
-    await interaction.response.send_message(f'{interaction.user.mention} : {text1} : {text2}', ephemeral=True)
+@client.slash_command(description="인사하기")
+async def hello(ctx, text: Option(str, "문자열 입력하기")):
+    await ctx.respond(f"안녕하세요! {text}")
 
 keep_alive()
 
