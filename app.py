@@ -25,6 +25,7 @@ async def notice(ctx, ch: Option(discord.TextChannel, "공지를 보낼 채널�
     embed = discord.Embed(title="공지사항", description=f"{message}", color=0x00ff00)
     embed.set_footer(text=f"Announce by {ctx.author}")
     await ch.send(embed=embed)
+    await ctx.respond("공지를 전송했어요!")
 
 @bot.slash_command(name="도움말", description="도움말을 보여줍니다.")
 async def help(ctx):
