@@ -10,6 +10,27 @@ from discord import Option
 
 bot = discord.Bot()
 
+page = discord.Embed(title="도움말", color=0x00ff00)
+
+helpView = discord.ui.View()
+    
+back = discord.ui.Button(style=discord.ButtonStyle.red, label='이전', emoji=u"\u2B05")
+next = discord.ui.Button(style=discord.ButtonStyle.green, label='다음', emoji=u"\u27A1")
+
+#view.add_item()
+
+async def back_button_callback(interaction: discord.Interaction):
+    dummy = 0
+
+async def next_button_callback(interaction: discord.Interaction):
+    dummy = 0
+
+back.callback = back_button_callback
+next.callback = next_button_callback
+
+helpView.add_item(back)
+helpView.add_item(next)
+
 @bot.slash_command(name="안녕", description="라나와 인사하기")
 async def hello(ctx):
     await ctx.respond("안녕하세요!")
@@ -29,29 +50,8 @@ async def notice(ctx, ch: Option(discord.TextChannel, "공지를 보낼 채널�
 
 @bot.slash_command(name="도움말", description="도움말을 보여줍니다.")
 async def help(ctx):
-  firstPage = discord.Embed(title="도움말", color=0x00ff00)
     
-  first_row = discord.ui.ActionRow(
-    discord.ui.Button(style=discord.ButtonStyle.blurple, label='현재 페이지', emoji=u"\u23F9"),
-    discord.ui.Button(style=discord.ButtonStyle.green, label='다음', emoji=u"\u27A1")
-  )
-
-  action_row = discord.ui.ActionRow(
-    discord.ui.Button(style=discord.ButtonStyle.red, label='이전', emoji=u"\u2B05"),
-    discord.ui.Button(style=discord.ButtonStyle.blurple, label='현재 페이지', emoji=u"\u23F9"),
-    discord.ui.Button(style=discord.ButtonStyle.green, label='다음', emoji=u"\u27A1")
-  )
-
-  last_row = discord.ui.ActionRow(
-    discord.ui.Button(style=discord.ButtonStyle.red, label='이전', emoji=u"\u2B05"),
-    discord.ui.Button(style=discord.ButtonStyle.blurple, label='현재 페이지', emoji=u"\u23F9")
-  )
-
-
-  view = discord.ui.View()
-  view.add_item(action_row)
-
-  await ctx.send(embed=firstPage, view=view)
+    await ctx.send(embed=page, view=helpView)
 
 token = os.environ.get("TOKEN") or ""
 bot.run(token)
