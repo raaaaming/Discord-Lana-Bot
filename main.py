@@ -23,5 +23,5 @@ client.tree.command(name='hello', description='testing')  # 명령어 이름, �
 async def hello(interaction: discord.Interaction, text1:str, text2:int):    # 출력
     await interaction.response.send_message(f'{interaction.user.mention} : {text1} : {text2}', ephemeral=True)
 
-token = os.getenv("TOKEN") or ""
+token = os.environ.get("TOKEN") or ""
 client.run(token)
