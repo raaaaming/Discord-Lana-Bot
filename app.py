@@ -12,7 +12,7 @@ bot = discord.Bot()
 
 page = discord.Embed(title="도움말", color=0x00ff00)
 
-helpView = discord.ui.View()
+helpView = discord.ui.View(timeout=None)
     
 back = discord.ui.Button(style=discord.ButtonStyle.red, label='이전', emoji=u"\u2B05")
 next = discord.ui.Button(style=discord.ButtonStyle.green, label='다음', emoji=u"\u27A1")
