@@ -27,7 +27,7 @@ async def notice(ctx, ch: Option(discord.TextChannel, "공지를 보낼 채널�
     await ch.send(embed=embed)
 
 @bot.slash_command(name="도움말", description="도움말을 보여줍니다.")
-async def help(ctx: commands.Context):
+async def help(ctx):
   firstPage = discord.Embed(title="도움말", color=0x00ff00)
     
   first_row = discord.ui.ActionRow(
