@@ -51,7 +51,7 @@ async def help(ctx):
     helpView.add_item(back)
     helpView.add_item(next)
     
-    await ctx.send(embed=page, view=helpView)
+    await ctx.respond(embed=page, view=helpView)
 
 token = os.environ.get("TOKEN") or ""
 bot.run(token)
