@@ -20,7 +20,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
 
-client.tree.command(name='hello', description='testing')  # 명령어 이름, 설명
+@client.tree.command(name='hello', description='testing')  # 명령어 이름, 설명
 @app_commands.describe(text1='쓸 내용', text2 = '번호') # 같이 쓸 내용들
 async def hello(interaction: discord.Interaction, text1:str, text2:int):    # 출력
     await interaction.response.send_message(f'{interaction.user.mention} : {text1} : {text2}', ephemeral=True)
