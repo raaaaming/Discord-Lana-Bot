@@ -8,7 +8,7 @@ import discord
 
 from keep_alive import keep_alive
 
-bot = discord.Bot(pycord.Intents())
+bot = discord.Bot()
 
 @bot.listen(pycord.Ready)
 async def on_ready() -> None:
