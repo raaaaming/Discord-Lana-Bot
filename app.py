@@ -6,7 +6,7 @@ import os
 import random
 
 import discord
-from discord.commands import Option
+from discord import Option
 
 bot = discord.Bot()
 
