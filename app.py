@@ -32,7 +32,7 @@ async def on_ready():
     print("------")
 
 
-@bot.command()
+@bot.slash_command()
 async def add(ctx: commands.Context, left: int, right: int):
     """Adds two numbers together."""
     await ctx.send(str(left + right))
