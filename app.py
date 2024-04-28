@@ -4,7 +4,7 @@
 import os
 
 import discord
-from discord.commands import Options
+from discord.commands import Option
 
 from keep_alive import keep_alive
 
