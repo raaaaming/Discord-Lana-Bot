@@ -54,5 +54,22 @@ async def help(ctx):
     await ctx.respond("도움말을 가져왔어요!")
     await ctx.send(embed=page, view=helpView)
 
+@bot.slash_command(name="인증", descrption="라나의 인증하기")
+async def check(ctx):
+    guild_id = ctx.guild.id
+    role = discord.utils.get(ctx.guild.roles, name="인증")
+    
+    view = discord.ui.View()
+    button = discord.ui.Button(label="인증하기", style=discord.ButtonStyle.green)
+    
+    async def button_callback(interaction: discord.Interaction):
+        await interaction.user.add_roles(role)
+        await interaction.response.send_message("인증이 완료되었어요!")
+    
+    button.callback = button_callback
+    view.add_item(button)
+    
+    await ctx.respond("인증하려면 아래 버튼을 눌러주세요!", view=view)
+
 token = os.environ.get("TOKEN") or ""
 bot.run(token)
