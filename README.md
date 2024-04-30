@@ -1,7 +1,7 @@
 Lana Discord Bot (라나 디스코드 봇)
 ================================
 
-This project is my Discord Bot Develop Project that will give me the badge of Discord named "Active Developer"
+This project is my Discord Bot Develop Project that will give me the badge of Discord named "Active Developer"   
 이 프로젝트는 제가 "활성 개발자" 뱃지를 얻기 위한 프로젝트입니다.
 ---------------------------------------------------------------------------------------------------------------
   
